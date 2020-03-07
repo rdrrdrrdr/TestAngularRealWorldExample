@@ -81,7 +81,8 @@ export class ArticleComponent implements OnInit {
 
   populateComments() {
     this.commentsService.getAll(this.article.slug)
-      .subscribe(comments => this.comments = comments);
+      .subscribe(comments => this.comments = comments,
+                 err=> console.log(err.errors));
   }
 
   addComment() {

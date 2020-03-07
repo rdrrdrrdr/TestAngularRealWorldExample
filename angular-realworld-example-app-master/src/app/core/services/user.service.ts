@@ -11,10 +11,10 @@ import { map ,  distinctUntilChanged } from 'rxjs/operators';
 @Injectable()
 export class UserService {
   private currentUserSubject = new BehaviorSubject<User>({} as User);
-  public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
+  public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged()); //RDR - creating an observable
 
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
-  public isAuthenticated = this.isAuthenticatedSubject.asObservable();
+  public isAuthenticated = this.isAuthenticatedSubject.asObservable(); //RDR - creating an observable
 
   constructor (
     private apiService: ApiService,
@@ -26,7 +26,7 @@ export class UserService {
   // This runs once on application startup.
   populate() {
     // If JWT detected, attempt to get & store user's info
-    if (this.jwtService.getToken()) {
+    if (this.jwtService.getToken()) { //RDR - using jwtService
       //debugger 
       this.apiService.get('/user')
       .subscribe( data => {

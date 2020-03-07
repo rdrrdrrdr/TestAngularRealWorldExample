@@ -63,7 +63,7 @@
     <div class="article-actions">
       <app-article-meta [article]="article">
 
-          <span [hidden]="!canModify">
+        <span [hidden]="!canModify">
           <a class="btn btn-sm btn-outline-secondary"
              [routerLink]="['/editor', article.slug]">
             <i class="ion-edit"></i> Edit Article
