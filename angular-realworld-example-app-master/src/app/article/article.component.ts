@@ -33,6 +33,7 @@ export class ArticleComponent implements OnInit {
     private userService: UserService,
   ) { }
 
+
   ngOnInit() {
     // Retreive the prefetched article
     this.route.data.subscribe(
@@ -75,7 +76,12 @@ export class ArticleComponent implements OnInit {
       .subscribe(
         success => {
           this.router.navigateByUrl('/');
+          console.log("RDR Success In delete Article");
+        },
+        (err) => {
+          console.log("Error in Here RDR");
         }
+        
       );
   }
 
