@@ -1,0 +1,69 @@
+<p>
+  aboutme works!
+  This is the RDR About me component.
+</p>
+Now we do HTML and tell people about me.a
+<br>
+going to list some aritcles 
+
+<div>
+<app-testrdrsimple></app-testrdrsimple>
+</div>
+
+<div class="col-md-3">
+  <div class="sidebar">
+    <p>Popular Tags</p>
+
+    <div class="tag-list">
+      <a *ngFor="let tag of tags"
+         (click)="setListTo('all', {tag: tag})"
+         class="tag-default tag-pill">
+         {{ tag }}
+      </a>
+      <br>
+      <a *ngFor="let tag of tags"
+      (click)="setListTo('all', {tag: tag})"
+      class="tag-default tag-pill2" style="color:blue !important">
+      {{ tag + '-rdr' }}
+      </a>
+    </div>
+
+    <div [hidden]="tagsLoaded">
+      Loading tags...
+    </div>
+
+    <div [hidden]="!tagsLoaded || tags.length > 0">
+      No tags are here... yet.
+    </div>
+  </div>
+</div>
+ 
+<div [hidden]="showThisButtonRDR">
+  <button class="tag-default tag-pill2" routerLink="/settings" >
+    Go To Settings
+  </button>
+</div>
+<div>
+  <select [(ngModel)]="selectedTag" >
+    <option *ngFor="let tag of tags" [value]="tag">
+      {{tag}}
+    </option>
+  </select>
+</div>
+<div>
+  RDR - You selected: {{selectedTag}}
+</div>
+<div>
+
+  <div class="btn-group-vertical" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary">Left</button>
+    <button type="button" class="btn btn-secondary">Middle</button>
+    <button type="button" class="btn btn-secondary">Right</button>
+  </div>
+
+
+<div [hidden]="!tagsLoaded || tags.length > 0"  >
+  <button class="tag-default tag-pill2" routerLink="/settings" routerLinkActive = "active">
+    Go To Settings 22
+  </button>
+</div>
