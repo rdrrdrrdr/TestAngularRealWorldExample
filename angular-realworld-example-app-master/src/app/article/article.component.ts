@@ -86,6 +86,7 @@ export class ArticleComponent implements OnInit {
   }
 
   addComment() {
+    debugger
     this.isSubmitting = true;
     this.commentFormErrors = {};
 
@@ -100,16 +101,19 @@ export class ArticleComponent implements OnInit {
         },
         errors => {
           this.isSubmitting = false;
+          debugger
           this.commentFormErrors = errors;
         }
       );
   }
 
   onDeleteComment(comment) {
+    debugger
     this.commentsService.destroy(comment.id, this.article.slug)
       .subscribe(
         success => {
-          this.comments = this.comments.filter((item) => item !== comment);
+          this.comments = this.comments.filter((item) => item !== comment),
+          (err: { error: string; }) => console.log('RDR err - the error = ' + err.error);
         }
       );
   }
